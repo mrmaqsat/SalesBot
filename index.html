@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Sales Bot - Автоматизация продаж</title>
+    <meta name="description" content="Умный бот для Telegram, который превратит ваши чаты в эффективную систему продаж. Автоматизация заказов, интеграция с CRM, уведомления и многое другое.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Telegram Sales Bot - Автоматизация продаж">
+    <meta property="og:description" content="Умный бот для Telegram, который превратит ваши чаты в эффективную систему продаж">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .delay-200 { animation-delay: 200ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-600 { animation-delay: 600ms; }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #dbeafe 0%, #f3e8ff 100%);
+        }
+
+        .gradient-purple {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+        }
+
+        .btn-hover:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden gradient-bg py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mx-auto max-w-4xl">
+                <div class="inline-flex items-center mb-6 px-4 py-2 bg-white/80 backdrop-blur-sm border rounded-full text-sm">
+                    <i data-lucide="bot" class="mr-2 h-4 w-4"></i>
+                    Telegram Sales Bot
+                </div>
+                <h1 class="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                    Автоматизируйте продажи и общение с клиентами
+                </h1>
+                <p class="mb-8 text-xl text-gray-600 sm:text-2xl">
+                    Умный бот для Telegram, который превратит ваши чаты в эффективную систему продаж
+                </p>
+                <button 
+                    id="hero-btn"
+                    class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-medium rounded-lg transition-all duration-300 btn-hover group"
+                >
+                    Начать использовать
+                    <i data-lucide="chevron-right" class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+                    Преимущества нашего решения
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Все что нужно для автоматизации продаж в одном боте
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="benefit-card border-0 shadow-lg hover:shadow-xl transition-all duration-500 card-hover bg-white rounded-xl fade-in-up">
+                    <div class="p-8 text-center">
+                        <div class="mx-auto mb-6 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="bot" class="h-8 w-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                            Автоматизация заказов и чатов
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Полная автоматизация процесса приема заказов и общения с клиентами в Telegram
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="benefit-card border-0 shadow-lg hover:shadow-xl transition-all duration-500 card-hover bg-white rounded-xl fade-in-up delay-200">
+                    <div class="p-8 text-center">
+                        <div class="mx-auto mb-6 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="database" class="h-8 w-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                            Интеграция с CRM и Google Sheets
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Seamless интеграция с популярными CRM-системами и Google Sheets для удобного управления данными
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="benefit-card border-0 shadow-lg hover:shadow-xl transition-all duration-500 card-hover bg-white rounded-xl fade-in-up delay-400">
+                    <div class="p-8 text-center">
+                        <div class="mx-auto mb-6 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="bell" class="h-8 w-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                            Уведомления владельцу и автоответы
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Мгновенные уведомления о новых заказах и автоматические ответы клиентам
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+                    Тарифные планы
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Выберите подходящий план для вашего бизнеса
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="pricing-card border shadow-lg hover:shadow-xl bg-white rounded-xl transition-all duration-500 card-hover fade-in-up">
+                    <div class="p-8">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-2 text-gray-900">Starter</h3>
+                            <h4 class="text-2xl font-extrabold mb-2 text-indigo-600">
+                                Standard
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                Идеально для теста и небольших проектов
+                            </p>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-indigo-100 text-indigo-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Каталог и оформление заказов</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-indigo-100 text-indigo-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">1 автоответ (приветствие)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-indigo-100 text-indigo-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Уведомление владельцу</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-indigo-100 text-indigo-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Интеграция с Google Sheets</span>
+                            </li>
+                        </ul>
+                        
+                        <button class="select-btn w-full py-3 font-semibold transition-all duration-300 btn-hover bg-gray-900 hover:bg-gray-800 text-white rounded-lg relative overflow-hidden" data-plan="Standard">
+                            Выбрать план
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="pricing-card border shadow-lg hover:shadow-xl bg-white rounded-xl transition-all duration-500 card-hover fade-in-up delay-200">
+                    <div class="p-8">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-2 text-gray-900">Professional</h3>
+                            <h4 class="text-2xl font-extrabold mb-2 text-blue-600">
+                                Professional
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                Для малого бизнеса и активных продаж
+                            </p>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Все функции Standard +</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Несколько автоответов</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Настройка текста и меню</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Базовая аналитика</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Кастомизация под бренд</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Лёгкая интеграция с CRM</span>
+                            </li>
+                        </ul>
+                        
+                        <button class="select-btn w-full py-3 font-semibold transition-all duration-300 btn-hover bg-gray-900 hover:bg-gray-800 text-white rounded-lg relative overflow-hidden" data-plan="Professional">
+                            Выбрать план
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card border shadow-lg hover:shadow-xl bg-white rounded-xl transition-all duration-500 card-hover fade-in-up delay-400">
+                    <div class="p-8">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-2 text-gray-900">Premium</h3>
+                            <h4 class="text-2xl font-extrabold mb-2 text-purple-600">
+                                Premium
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                Для масштабного роста и автоматизации
+                            </p>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Все функции Pro +</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">GPT-консультант в Telegram</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Оплата через Kaspi / крипту</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Автоворонка продаж</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Расширенная статистика и мультиботы</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Полная CRM-интеграция</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 bg-blue-100 text-blue-700">
+                                    <i data-lucide="check" class="h-3 w-3 font-bold"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">Приоритетная техподдержка</span>
+                            </li>
+                        </ul>
+                        
+                        <button class="select-btn w-full py-3 font-semibold transition-all duration-300 btn-hover bg-gray-900 hover:bg-gray-800 text-white rounded-lg relative overflow-hidden" data-plan="Premium">
+                            Выбрать план
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-purple">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-white sm:text-4xl mb-6">
+                    Начните автоматизацию уже сегодня
+                </h2>
+                <p class="text-xl text-blue-100 mb-8">
+                    Присоединяйтесь к тысячам довольных клиентов, которые уже автоматизировали свои продажи
+                </p>
+                <button 
+                    id="cta-btn"
+                    class="inline-flex items-center bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 btn-hover group"
+                >
+                    <i data-lucide="message-square" class="mr-2 h-5 w-5"></i>
+                    Связаться
+                    <i data-lucide="chevron-right" class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400 mb-4">
+                    Сделано с Zhaksytech
+                </p>
+                <a 
+                    href="https://t.me/zhaksytech" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center text-blue-400 hover:text-blue-300 hover:bg-gray-800 px-4 py-2 rounded-lg transition-colors"
+                >
+                    <i data-lucide="message-square" class="mr-2 h-4 w-4"></i>
+                    Telegram
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Hero button functionality
+        document.getElementById('hero-btn').addEventListener('click', function() {
+            const message = "Привет! 👋 Хочу автоматизировать продажи с помощью Telegram Sales Bot. Расскажите, как начать?";
+            window.open(`https://t.me/zhaksy_tech?text=${encodeURIComponent(message)}`, '_blank');
+        });
+
+        // CTA button functionality
+        document.getElementById('cta-btn').addEventListener('click', function() {
+            const message = "Привет! 💬 У меня есть вопросы по Telegram Sales Bot. Можете проконсультировать?";
+            window.open(`https://t.me/zhaksy_tech?text=${encodeURIComponent(message)}`, '_blank');
+        });
+
+        // Pricing plan buttons functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.select-btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const planName = this.getAttribute('data-plan');
+                    
+                    // Button press effect
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                    
+                    // Ripple effect
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.left = '50%';
+                    ripple.style.top = '50%';
+                    ripple.style.width = '20px';
+                    ripple.style.height = '20px';
+                    ripple.style.marginLeft = '-10px';
+                    ripple.style.marginTop = '-10px';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                    
+                    // Open Telegram with message
+                    const message = `Привет! 🚀 Меня заинтересовал тариф "${planName}" для Telegram Sales Bot. Хочу узнать подробности и начать работу!`;
+                    window.open(`https://t.me/zhaksy_tech?text=${encodeURIComponent(message)}`, '_blank');
+                });
+            });
+        });
+
+        // Smooth scrolling and animation on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.fade-in-up');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
